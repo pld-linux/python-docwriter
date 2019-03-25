@@ -20,7 +20,7 @@ URL:		https://github.com/freetype/docwriter
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 BuildRequires:	python-setuptools_scm
-%if %{with test}
+%if %{with tests}
 BuildRequires:	python-PyYAML >= 5.1
 BuildRequires:	python-mistune >= 0.8.4
 BuildRequires:	python-mkdocs >= 1.0.4
@@ -32,7 +32,7 @@ BuildRequires:	python-pytest
 BuildRequires:	python3-modules >= 1:3.4
 BuildRequires:	python3-setuptools
 BuildRequires:	python3-setuptools_scm
-%if %{with test}
+%if %{with tests}
 BuildRequires:	python3-PyYAML >= 5.1
 BuildRequires:	python3-mistune >= 0.8.4
 BuildRequires:	python3-mkdocs >= 1.0.4
