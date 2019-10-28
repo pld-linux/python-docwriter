@@ -8,7 +8,7 @@ Summary:	API reference documentation generator for FreeType
 Summary(pl.UTF-8):	Generator dokumentacji referencyjnej API do biblioteki FreeType
 Name:		python-docwriter
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	FreeType
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/docwriter/
