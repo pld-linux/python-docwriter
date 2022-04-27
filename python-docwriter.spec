@@ -23,6 +23,7 @@ BuildRequires:	python-setuptools_scm
 %if %{with tests}
 BuildRequires:	python-PyYAML >= 5.1
 BuildRequires:	python-mistune >= 0.8.4
+BuildRequires:	python-mistune < 2
 BuildRequires:	python-mkdocs >= 1.0.4
 BuildRequires:	python-mkdocs-material >= 4.0.2
 BuildRequires:	python-pytest
@@ -35,6 +36,7 @@ BuildRequires:	python3-setuptools_scm
 %if %{with tests}
 BuildRequires:	python3-PyYAML >= 5.1
 BuildRequires:	python3-mistune >= 0.8.4
+BuildRequires:	python3-mistune < 2
 BuildRequires:	python3-mkdocs >= 1.0.4
 BuildRequires:	python3-mkdocs-material >= 4.0.2
 BuildRequires:	python3-pytest
@@ -76,11 +78,27 @@ FreeType.
 
 %build
 %if %{with python2}
-%py_build %{?with_tests:test}
+%py_build
+
+%if %{with tests}
+cd tests
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTHONPATH=$(pwd)/.. \
+%{__python} -m pytest
+cd ..
+%endif
 %endif
 
 %if %{with python3}
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+cd tests
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTHONPATH=$(pwd)/.. \
+%{__python3} -m pytest
+cd ..
+%endif
 %endif
 
 %install
